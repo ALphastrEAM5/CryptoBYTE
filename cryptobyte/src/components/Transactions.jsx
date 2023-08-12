@@ -1,55 +1,70 @@
-import React from 'react'
-import tr_logo from "../assets/tr-logo.png"
-import redirect from "../assets/redirect.jpg"
+import { useEffect, useState } from 'react'
+import { BiTransfer } from 'react-icons/bi'
+import { MdOpenInNew } from 'react-icons/md'
+import { useGlobalState, truncate } from '../store'
 
 const Transactions = () => {
+  const [transactions] = useGlobalState('transactions')
+  const [end, setEnd] = useState(3)
+  const [count] = useState(3)
+  const [collection, setCollection] = useState([])
+
+  const getCollection = () => {
+    return transactions.slice(0, end)
+  }
+
+  useEffect(() => {
+    setCollection(getCollection())
+  }, [transactions, end])
+
   return (
-    <div className="transactions"><b style={{marginLeft:'90px', color:'white',
-    marginLeft:'90px', fontSize:'60px', fontFamily:'Georgia'}}>Latest Transactions</b>
+    <div className="bg-[#151c25]">
+      <div className="w-4/5 py-10 mx-auto">
+        <h4 className="text-white text-3xl font-bold uppercase text-gradient">
+          {collection.length > 0 ? 'Latest Transactions' : 'No Transaction Yet'}
+        </h4>
 
-    <div className="trans-con">
-      <div className="row">
-    <div className="item">
-      <span className="tr-logo"><img src={tr_logo} width={50} height={50} alt="" /></span>
-      <span className="tr-txt">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 lg:gap-2 py-2.5">
+          {collection.map((tx) => (
+            <div
+              key={tx.id}
+              className="flex justify-between items-center border border-pink-500 text-gray-400 w-full shadow-xl shadow-black rounded-md overflow-hidden bg-gray-800 my-2 p-3"
+            >
+              <div className="rounded-md shadow-sm shadow-pink-500 p-2">
+                <BiTransfer />
+              </div>
 
-        <div className="tr-confirm" style={{marginLeft: '140px', opacity:'0.5'}}>#1 Fund Transferred <br />Received by<i style={{color:'rgb(235, 106, 128)'}}>0x51B...C1E9</i> <a href="#"><img src={redirect} height={20} width={20} alt="" /></a></div>
+              <div>
+                <h4 className="text-sm">{tx.title} Transfered</h4>
+                <small className="flex flex-row justify-start items-center">
+                  <span className="mr-1">Received by</span>
+                  <a href="#" className="text-pink-500 mr-2">
+                    {truncate(tx.owner, 4, 4, 11)}
+                  </a>
+                  <a href="#">
+                    <MdOpenInNew />
+                  </a>
+                </small>
+              </div>
 
-        <div className="tr-cur" style={{display:'flex',
-        justifyContent:'center', marginLeft: '60px', opacity:'0.5'}}>0.32 ETH</div>
-        
-          
-        
-      </span>
+              <p className="text-sm font-medium">{tx.cost}ETH</p>
+            </div>
+          ))}
+        </div>
+
+        {collection.length > 0 && transactions.length > collection.length ? (
+          <div className="text-center my-5">
+            <button
+              className="shadow-xl shadow-black text-white
+            bg-[#e32970] hover:bg-[#bd255f]
+            rounded-full cursor-pointer p-2"
+              onClick={() => setEnd(end + count)}
+            >
+              Load More
+            </button>
+          </div>
+        ) : null}
       </div>
-      <div className="item">
-      <span className="tr-logo"><img src={tr_logo} width={50} height={50} alt="" /></span>
-      <span className="tr-txt">
-
-      <div className="tr-confirm" style={{marginLeft: '140px', opacity:'0.5'}}>#2 Fund Transferred <br />Received by <i style={{color:'rgb(235, 106, 128)'}}>0x51B...C1E9</i> <a href="#"><img src={redirect} height={20} width={20} alt="" /></a></div>
-          
-      <div className="tr-cur" style={{display:'flex',
-        justifyContent:'center', marginLeft: '60px', opacity:'0.5'}}>0.32 ETH</div>
-        
-      </span>
-      </div>
-      <div className="item">
-      <span className="tr-logo"><img src={tr_logo} width={50} height={50} alt="" /></span>
-      <span className="tr-txt">
-
-      <div className="tr-confirm" style={{marginLeft: '140px', opacity:'0.5'}}>#3 Fund Transferred <br />Received by <i style={{color:'rgb(235, 106, 128)'}}>0x51B...C1E9</i> <a href="#"><img src={redirect} height={20} width={20} alt="" /></a></div>
-          
-      <div className="tr-cur" style={{display:'flex',
-        justifyContent:'center', marginLeft: '60px', opacity:'0.5'}}>0.32 ETH</div>
-
-      </span>
-      </div>
-    
-  </div>
-    </div>
-
-    <div className="load-more">Load More</div>
-
     </div>
   )
 }

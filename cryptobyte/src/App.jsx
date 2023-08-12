@@ -1,36 +1,38 @@
-import React, { useState } from 'react';
-import Header from "./components/Header"
-import Body from "./components/Body"
-import DOT from "./components/DOT"
-import Transactions from "./components/Transactions"
-import Footer from "./components/Footer"
-import Mint from "./components/Mint"
-import Purchase from "./components/Purchase"
+import { useEffect } from 'react'
+import { getAllNFTs, isWallectConnected } from './Blockchain.Services'
+import Alert from './components/Alert'
+import Artworks from './components/Artworks'
+import CreateNFT from './components/CreateNFT'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Loading from './components/Loading'
+import ShowNFT from './components/ShowNFT'
+import Transactions from './components/Transactions'
+import UpdateNFT from './components/UpdateNFT'
 
+const App = () => {
+  useEffect(async () => {
+    await isWallectConnected()
+    await getAllNFTs()
+  }, [])
 
-function App() {
-
-  const [defaultAccount, setDefaultAccount] = useState('0x0000000000000000000000000000000000000000');
-  
   return (
     <div className="min-h-screen">
       <div className="gradient-bg-hero">
-      <Header defaultAccount={defaultAccount} setDefaultAccount={setDefaultAccount} />
-      <Body defaultAccount={defaultAccount} />
-        
-        </div> 
-        <div className="radial-dark">
-        <DOT />
-        <Purchase />
-        
-        <Transactions />
-        <Footer />
-        
-        </div>
-    </div> 
-  );
+        <Header />
+        <Hero />
+      </div>
+      <Artworks />
+      <Transactions />
+      <CreateNFT />
+      <ShowNFT />
+      <UpdateNFT />
+      <Footer />
+      <Alert />
+      <Loading />
+    </div>
+  )
 }
 
-export default App;
-
-
+export default App

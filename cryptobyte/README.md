@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# How to Build a Better NFT Marketplace with React, Solidity, and CometChat
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Read the full tutorial here: [**>> How to Build a Better NFT Marketplace with React, Solidity, and CometChat**](https://daltonic.github.io)
 
-## Available Scripts
+This example shows How to Build a Better NFT Marketplace with React, Solidity, and CometChat:
 
-In the project directory, you can run:
+![TimelessNFT Project](./screenshots/0.gif)
+<center><figcaption>TimelessNFT Project</figcaption></center>
 
-### `npm start`
+## Technology
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This demo uses:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Metamask
+- Truffle
+- Infuria
+- ReactJs
+- Tailwind CSS
+- Ganache-CLI
+- Solidity
+- Web3js
+- Faucet
 
-### `npm test`
+## Running the demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the demo follow these steps:
 
-### `npm run build`
+1. Clone the project with the code below.
+    ```sh
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    # Make sure you have the above prerequisites installed already!
+    git clone https://github.com/Daltonic/timelessNFT PROJECT_NAME
+    cd PROJECT_NAME # Navigate to the new folder.
+    yarn install # Installs all the dependencies.
+    ```
+2. Create an Infuria project, copy and paste your key in the spaces below.
+3. Update the `.env` file with the following details.
+    ```sh
+    REACT_APP_INFURIA_PID=<INFURIA_API_KEY_HERE>
+    REACT_APP_INFURIA_API=<INFURIA_API_KEY_SECRET_HERE>
+    ```
+4. Create a CometChat project, copy and paste your key in the spaces below.
+5. Install truffle and ganache.
+    ```sh
+    npm install -g truffle
+    npm install ganache --global
+    ```
+6. Run the app using the following commands.
+    ```sh
+    yarn install
+    ganache -d
+    truffle migrate --reset
+    yarn start
+    ```
+7. Add some ganache accounts, connect your wallet and interact with the app.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If your confuse about the installation, check out this **TUTORIAL** to see how you should run it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Questions about running the demo? [Open an issue](https://github.com/Daltonic/timelessNFT/issues). We're here to help ✌️
+Access the [Teaching Guide Here](https://docs.google.com/document/d/13bBRyAO0bEwRt776FXbYgWm6-OBFiUu6zTeOgRbXXyI/edit?usp=sharing).
 
-### `npm run eject`
+## Useful links
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 🏠 [Website](https://daltonic.github.io/)
+- ⚽ [Metamask](https://metamask.io/)
+- 🚀 [Remix Editor](https://remix.ethereum.org/)
+- 💡 [Truffle](https://trufflesuite.com/)
+- 📈 [Infuria](https://infura.io/)
+- 🔥 [ReactJs](https://reactjs.org/)
+- 🐻 [Solidity](https://soliditylang.org/)
+- 👀 [Web3Js](https://docs.ethers.io/v5/)
+- 🎅 [Faucet](https://faucets.chain.link/rinkeby)
+- 🤖 [Ganache](https://trufflesuite.com/ganache/index.html)
+- ✨ [Live Demo](https://timelessnft-33dea.web.app/)
