@@ -1,1 +1,1 @@
-aaa
+This is a NFT Marketplace for buying and selling artefacts and digital artworks buit with solidity, Html, Tailwind CSS, React. Here you can collect your metamask wallet and check all the artworks and transactions that had been made using Goreli TestNet account by all the people in the network. You can mint your tokens(digital assets), for which some gas fees will be charged. Your latest transaction for buying will definitely show here. 
